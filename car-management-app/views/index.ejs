@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Management</title>
+</head>
+<body>
+<h1>Car Management</h1>
+<a href="/cars/new">Add New Car</a>
+<form action="/cars/search" method="GET">
+    <input type="text" name="term" placeholder="Search cars...">
+    <button type="submit">Search</button>
+</form>
+<ul>
+    <% cars.forEach(car => { %>
+        <li>
+            <%= car.name %> - <%= car.manufacturer %> (<%= car.year %>)
+            <a href="/cars/<%= car._id %>">View</a>
+            <a href="/cars/<%= car._id %>/edit">Edit</a>
+            <form action="/cars/<%= car._id %>?_method=DELETE" method="POST" style="display: inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    <% }); %>
+</ul>
+</body>
+</html>
+
