@@ -4,9 +4,13 @@ const Car = require('../models/Car');
 
 // Index - Show all cars
 router.get('/', async (req, res) => {
+    console.log('vào get');
+    
     try {
         const cars = await Car.find();
-        res.render('cars/index', { cars, searchTerm: '' });
+        // res.render('cars/index', { cars, searchTerm: '' });
+        res.json(cars);
+        
     } catch (err) {
         res.status(500).json({ message: err.message });
     }

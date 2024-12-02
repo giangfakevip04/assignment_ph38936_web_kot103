@@ -7,7 +7,7 @@ const path = require('path');
 const app = express();
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://giangtvph38936:admin123@cluster0.a4j5d.mongodb.net/ ', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://giangtvph38936:admin123@cluster0.a4j5d.mongodb.net/ ')
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Could not connect to MongoDB', err));
 
@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(3000, '0.0.0.0', () => {
-    console.log('Server is running on port 3000');
+app.listen(5000, '0.0.0.0', () => {
+    console.log('Server is running on port 5000');
 });
 
